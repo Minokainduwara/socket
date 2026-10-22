@@ -32,7 +32,19 @@ public class StudentServer {
                 socket.getOutputStream(),true
         );
 
-        //
+        //Receive the registration number from the client
+        String regNo = in.readLine();
+        System.out.println("Received the reg number: " + regNo);
+
+        // Check whether the registration Number exists
+        if (students.containsKey(regNo)){
+            String[] info = students.get(regNo);
+            out.println("Name: " + info[0] + ", Course: " + info[1]);
+
+        }else{
+            out.println("Student not Found");
+        }
+
 
 
     }
