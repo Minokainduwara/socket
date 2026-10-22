@@ -1,6 +1,7 @@
 package DS_Lab1;
 import java.io.*;
-import java.net.ServerSocket;
+import java.net.*;
+import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +20,19 @@ public class StudentServer {
         ServerSocket server = new ServerSocket(5002);
         System.out.println("Server is waiting for a client");
 
+        // Wait for a client connection
+        Socket socket = server.accept();
+
+        // Create input and Output Stream
+        BufferedReader in = new BufferedReader(
+                new InputStreamReader(socket.getInputStream())
+        );
+
+        PrintWriter out = new PrintWriter(
+                socket.getOutputStream(),true
+        );
+
+        //
 
 
     }
